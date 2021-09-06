@@ -1,11 +1,20 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
-</template>
+<div class="container">
+    <head-nav-vue></head-nav-vue>
+    <div id="main">
+       <router-view />
+    </div>
+</div>
 
+</template>
+<script>
+import HeadNavVue from './components/HeadNav.vue'
+export default {
+  components:{
+    HeadNavVue
+  }
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -14,17 +23,16 @@
   text-align: center;
   color: #2c3e50;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+body{
+  margin:0
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  #main{
+    flex:1
   }
 }
 </style>
